@@ -12,40 +12,42 @@
 
 <body class="bg-slate-50 text-slate-900">
 
+
     <!-- Navbar -->
     <nav class="bg-white border-b border-slate-200">
 
         <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
 
             <a href="index.html"
-               class="text-2xl font-bold text-indigo-600 transition-transform duration-300 hover:scale-105">
+                class="text-2xl font-bold text-indigo-600 transition-transform duration-300 hover:scale-105">
                 CampusConnect
             </a>
+
 
             <div class="hidden md:flex items-center gap-6">
 
                 <a href="index.html"
-                   class="relative text-slate-600 hover:text-indigo-600 pb-1 transition-colors duration-300 after:content-[''] after:absolute after:left-0 after:-bottom-0.5 after:h-0.5 after:w-0 after:bg-indigo-600 after:rounded-full after:transition-all after:duration-300 hover:after:w-full">
+                    class="relative text-slate-600 hover:text-indigo-600 pb-1 transition-colors duration-300 after:content-[''] after:absolute after:left-0 after:-bottom-0.5 after:h-0.5 after:w-0 after:bg-indigo-600 after:rounded-full after:transition-all after:duration-300 hover:after:w-full">
                     Home
                 </a>
 
                 <a href="events.html"
-                   class="relative text-slate-600 hover:text-indigo-600 pb-1 transition-colors duration-300 after:content-[''] after:absolute after:left-0 after:-bottom-0.5 after:h-0.5 after:w-0 after:bg-indigo-600 after:rounded-full after:transition-all after:duration-300 hover:after:w-full">
+                    class="relative text-slate-600 hover:text-indigo-600 pb-1 transition-colors duration-300 after:content-[''] after:absolute after:left-0 after:-bottom-0.5 after:h-0.5 after:w-0 after:bg-indigo-600 after:rounded-full after:transition-all after:duration-300 hover:after:w-full">
                     Events
                 </a>
 
                 <a href="planner.html"
-                   class="relative text-slate-600 hover:text-indigo-600 pb-1 transition-colors duration-300 after:content-[''] after:absolute after:left-0 after:-bottom-0.5 after:h-0.5 after:w-0 after:bg-indigo-600 after:rounded-full after:transition-all after:duration-300 hover:after:w-full">
+                    class="relative text-slate-600 hover:text-indigo-600 pb-1 transition-colors duration-300 after:content-[''] after:absolute after:left-0 after:-bottom-0.5 after:h-0.5 after:w-0 after:bg-indigo-600 after:rounded-full after:transition-all after:duration-300 hover:after:w-full">
                     Study Planner
                 </a>
 
                 <a href="lost-found.html"
-                   class="relative text-slate-600 hover:text-indigo-600 pb-1 transition-colors duration-300 after:content-[''] after:absolute after:left-0 after:-bottom-0.5 after:h-0.5 after:w-0 after:bg-indigo-600 after:rounded-full after:transition-all after:duration-300 hover:after:w-full">
+                    class="relative text-slate-600 hover:text-indigo-600 pb-1 transition-colors duration-300 after:content-[''] after:absolute after:left-0 after:-bottom-0.5 after:h-0.5 after:w-0 after:bg-indigo-600 after:rounded-full after:transition-all after:duration-300 hover:after:after:w-full">
                     Lost & Found
                 </a>
 
                 <a href="study-partners.html"
-                   class="text-indigo-600 font-semibold">
+                    class="text-indigo-600 font-semibold">
                     Study Partners
                 </a>
 
@@ -82,40 +84,46 @@
     <!-- Search & Filters -->
     <section class="max-w-7xl mx-auto px-6 py-10">
 
-        <div class="bg-white border border-slate-200
-                    rounded-2xl p-5 transition-shadow duration-300 hover:shadow-md">
+        <div
+            class="bg-white border border-slate-200 rounded-2xl p-5 transition-shadow duration-300 hover:shadow-md">
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
 
-                <input id="partnerSearch"
+                <!-- Search -->
+                <input
+                    id="partnerSearch"
                     type="text"
                     placeholder="Search subject..."
-                    class="px-4 py-3 border border-slate-300
-                           rounded-xl outline-none transition-all duration-300
-                           focus:ring-2 focus:ring-indigo-500"
+                    class="px-4 py-3 border border-slate-300 rounded-xl outline-none transition-all duration-300 focus:ring-2 focus:ring-indigo-500"
                 >
 
-                <select id="levelFilter"
-                    class="px-4 py-3 border border-slate-300
-                           rounded-xl outline-none transition-all duration-300
-                           focus:ring-2 focus:ring-indigo-500"
+
+                <!-- Level Filter -->
+                <select
+                    id="levelFilter"
+                    class="px-4 py-3 border border-slate-300 rounded-xl outline-none transition-all duration-300 focus:ring-2 focus:ring-indigo-500"
                 >
+
                     <option>All Levels</option>
                     <option>Beginner</option>
                     <option>Intermediate</option>
                     <option>Advanced</option>
+
                 </select>
 
-                <select id="subjectFilter"
-                    class="px-4 py-3 border border-slate-300
-                           rounded-xl outline-none transition-all duration-300
-                           focus:ring-2 focus:ring-indigo-500"
+
+                <!-- Subject Filter -->
+                <select
+                    id="subjectFilter"
+                    class="px-4 py-3 border border-slate-300 rounded-xl outline-none transition-all duration-300 focus:ring-2 focus:ring-indigo-500"
                 >
+
                     <option>All Subjects</option>
                     <option>Web Development</option>
                     <option>Data Structures</option>
                     <option>Database</option>
                     <option>Artificial Intelligence</option>
+
                 </select>
 
             </div>
@@ -132,20 +140,18 @@
 
 
             <!-- Partner 1 -->
-            <div class="bg-white border border-slate-200
-                        rounded-2xl p-6
-                        transition-all duration-300 hover:-translate-y-2 hover:shadow-lg hover:border-indigo-300">
+            <div
+                class="partner-card bg-white border border-slate-200 rounded-2xl p-6 transition-all duration-300 hover:-translate-y-2 hover:shadow-lg hover:border-indigo-300">
 
                 <div class="flex items-center gap-4 mb-5">
 
-                    <div class="w-14 h-14 rounded-full
-                                bg-indigo-100
-                                flex items-center justify-center
-                                text-2xl transition-transform duration-300 hover:scale-110 hover:-rotate-6">
+                    <div
+                        class="w-14 h-14 rounded-full bg-indigo-100 flex items-center justify-center text-2xl transition-transform duration-300 hover:scale-110 hover:-rotate-6">
                         👩🏻‍💻
                     </div>
 
                     <div>
+
                         <h2 class="font-bold text-lg">
                             Ayesha
                         </h2>
@@ -153,6 +159,7 @@
                         <p class="text-sm text-slate-500">
                             Computer Science
                         </p>
+
                     </div>
 
                 </div>
@@ -164,6 +171,7 @@
                         <span class="font-semibold">
                             📚 Subject:
                         </span>
+
                         Web Development
                     </p>
 
@@ -171,6 +179,7 @@
                         <span class="font-semibold">
                             🎯 Level:
                         </span>
+
                         Intermediate
                     </p>
 
@@ -178,6 +187,7 @@
                         <span class="font-semibold">
                             📍 Preferred:
                         </span>
+
                         Library
                     </p>
 
@@ -185,10 +195,7 @@
 
 
                 <button
-                    class="w-full mt-6 bg-indigo-600
-                           text-white py-3 rounded-xl
-                           font-semibold transition-all duration-300
-                           hover:bg-indigo-700 hover:scale-105 hover:shadow-xl">
+                    class="w-full mt-6 bg-indigo-600 text-white py-3 rounded-xl font-semibold transition-all duration-300 hover:bg-indigo-700 hover:scale-105 hover:shadow-xl cursor-pointer">
                     Connect
                 </button>
 
@@ -196,20 +203,18 @@
 
 
             <!-- Partner 2 -->
-            <div class="bg-white border border-slate-200
-                        rounded-2xl p-6
-                        transition-all duration-300 hover:-translate-y-2 hover:shadow-lg hover:border-indigo-300">
+            <div
+                class="partner-card bg-white border border-slate-200 rounded-2xl p-6 transition-all duration-300 hover:-translate-y-2 hover:shadow-lg hover:border-indigo-300">
 
                 <div class="flex items-center gap-4 mb-5">
 
-                    <div class="w-14 h-14 rounded-full
-                                bg-purple-100
-                                flex items-center justify-center
-                                text-2xl transition-transform duration-300 hover:scale-110 hover:-rotate-6">
+                    <div
+                        class="w-14 h-14 rounded-full bg-purple-100 flex items-center justify-center text-2xl transition-transform duration-300 hover:scale-110 hover:-rotate-6">
                         👨🏻‍💻
                     </div>
 
                     <div>
+
                         <h2 class="font-bold text-lg">
                             Hamza
                         </h2>
@@ -217,6 +222,7 @@
                         <p class="text-sm text-slate-500">
                             Software Engineering
                         </p>
+
                     </div>
 
                 </div>
@@ -228,6 +234,7 @@
                         <span class="font-semibold">
                             📚 Subject:
                         </span>
+
                         Data Structures
                     </p>
 
@@ -235,6 +242,7 @@
                         <span class="font-semibold">
                             🎯 Level:
                         </span>
+
                         Advanced
                     </p>
 
@@ -242,6 +250,7 @@
                         <span class="font-semibold">
                             📍 Preferred:
                         </span>
+
                         Study Room
                     </p>
 
@@ -249,10 +258,7 @@
 
 
                 <button
-                    class="w-full mt-6 bg-indigo-600
-                           text-white py-3 rounded-xl
-                           font-semibold transition-all duration-300
-                           hover:bg-indigo-700 hover:scale-105 hover:shadow-xl">
+                    class="w-full mt-6 bg-indigo-600 text-white py-3 rounded-xl font-semibold transition-all duration-300 hover:bg-indigo-700 hover:scale-105 hover:shadow-xl cursor-pointer">
                     Connect
                 </button>
 
@@ -260,20 +266,18 @@
 
 
             <!-- Partner 3 -->
-            <div class="bg-white border border-slate-200
-                        rounded-2xl p-6
-                        transition-all duration-300 hover:-translate-y-2 hover:shadow-lg hover:border-indigo-300">
+            <div
+                class="partner-card bg-white border border-slate-200 rounded-2xl p-6 transition-all duration-300 hover:-translate-y-2 hover:shadow-lg hover:border-indigo-300">
 
                 <div class="flex items-center gap-4 mb-5">
 
-                    <div class="w-14 h-14 rounded-full
-                                bg-indigo-100
-                                flex items-center justify-center
-                                text-2xl transition-transform duration-300 hover:scale-110 hover:-rotate-6">
+                    <div
+                        class="w-14 h-14 rounded-full bg-indigo-100 flex items-center justify-center text-2xl transition-transform duration-300 hover:scale-110 hover:-rotate-6">
                         👨🏻‍🎓
                     </div>
 
                     <div>
+
                         <h2 class="font-bold text-lg">
                             Ali
                         </h2>
@@ -281,6 +285,7 @@
                         <p class="text-sm text-slate-500">
                             Computer Science
                         </p>
+
                     </div>
 
                 </div>
@@ -292,6 +297,7 @@
                         <span class="font-semibold">
                             📚 Subject:
                         </span>
+
                         Artificial Intelligence
                     </p>
 
@@ -299,6 +305,7 @@
                         <span class="font-semibold">
                             🎯 Level:
                         </span>
+
                         Intermediate
                     </p>
 
@@ -306,6 +313,7 @@
                         <span class="font-semibold">
                             📍 Preferred:
                         </span>
+
                         Online
                     </p>
 
@@ -313,10 +321,7 @@
 
 
                 <button
-                    class="w-full mt-6 bg-indigo-600
-                           text-white py-3 rounded-xl
-                           font-semibold transition-all duration-300
-                           hover:bg-indigo-700 hover:scale-105 hover:shadow-xl">
+                    class="w-full mt-6 bg-indigo-600 text-white py-3 rounded-xl font-semibold transition-all duration-300 hover:bg-indigo-700 hover:scale-105 hover:shadow-xl cursor-pointer">
                     Connect
                 </button>
 
@@ -331,8 +336,8 @@
     <!-- CTA -->
     <section class="max-w-7xl mx-auto px-6 pb-20">
 
-        <div class="bg-indigo-50 border border-indigo-100
-                    rounded-3xl p-10 text-center transition-transform duration-500 hover:scale-[1.01]">
+        <div
+            class="bg-indigo-50 border border-indigo-100 rounded-3xl p-10 text-center transition-transform duration-500 hover:scale-[1.01]">
 
             <h2 class="text-3xl font-bold text-indigo-950 mb-4">
                 Can't Find Your Study Partner?
@@ -344,9 +349,7 @@
             </p>
 
             <button
-                class="bg-indigo-600 text-white
-                       px-7 py-3 rounded-xl
-                       font-semibold transition-all duration-300 hover:bg-indigo-700 hover:scale-105 hover:shadow-xl animate-pulse">
+                class="bg-indigo-600 text-white px-7 py-3 rounded-xl font-semibold transition-all duration-300 hover:bg-indigo-700 hover:scale-105 hover:shadow-xl animate-pulse cursor-pointer">
                 Create Study Profile
             </button>
 
@@ -360,7 +363,8 @@
 
         <div class="max-w-7xl mx-auto px-6 py-10 text-center">
 
-            <h3 class="text-xl font-bold text-white mb-2 transition-colors duration-300 hover:text-indigo-300">
+            <h3
+                class="text-xl font-bold text-white mb-2 transition-colors duration-300 hover:text-indigo-300">
                 CampusConnect
             </h3>
 
@@ -371,6 +375,10 @@
         </div>
 
     </footer>
-<script src="./js/study-partners.js"></script>
+
+
+    <script src="./js/study-partners.js"></script>
+
 </body>
+
 </html>
