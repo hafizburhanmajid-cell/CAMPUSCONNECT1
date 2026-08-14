@@ -4,7 +4,14 @@ const subjectFilter = document.querySelector("#subjectFilter");
 
 const partnerCards = document.querySelectorAll(".partner-card");
 
+const menuButton = document.querySelector("#menuButton");
+const mobileMenu = document.querySelector("#mobileMenu");
 
+menuButton.addEventListener("click", function () {
+
+    mobileMenu.classList.toggle("hidden");
+
+});
 function filterPartners() {
 
     const searchText = searchInput.value

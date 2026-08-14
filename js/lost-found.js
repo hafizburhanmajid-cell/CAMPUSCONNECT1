@@ -1,6 +1,14 @@
 const searchInput = document.querySelector("#inputSearch");
 const reportButton = document.querySelector("#reportButton");
 const itemCards = document.querySelectorAll(".item-card");
+const menuButton = document.querySelector("#menuButton");
+const mobileMenu = document.querySelector("#mobileMenu");
+
+menuButton.addEventListener("click", function () {
+
+    mobileMenu.classList.toggle("hidden");
+
+});
 function searchItems() {
     const searchText = searchInput.value .toLowerCase() .trim();
     itemCards.forEach(card => {

@@ -7,7 +7,14 @@ const level = document.querySelector("#level");
 const preferredLocation = document.querySelector("#preferredLocation");
 const about = document.querySelector("#about");
 
+const menuButton = document.querySelector("#menuButton");
+const mobileMenu = document.querySelector("#mobileMenu");
 
+menuButton.addEventListener("click", function () {
+
+    mobileMenu.classList.toggle("hidden");
+
+});
 profileForm.addEventListener("submit", function (event) {
 
     event.preventDefault();

@@ -1,7 +1,14 @@
 const searchInput = document.querySelector("#eventsearch");
 const categorySelect = document.querySelector("#categoryFilter");
 const eventCards = document.querySelectorAll(".event-card");
+const menuButton = document.querySelector("#menuButton");
+const mobileMenu = document.querySelector("#mobileMenu");
 
+menuButton.addEventListener("click", function () {
+
+    mobileMenu.classList.toggle("hidden");
+
+});
 
 function filterEvents() {
 

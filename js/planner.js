@@ -7,7 +7,14 @@ const deadlineInput = document.querySelector("#deadlineInput");
 const tasksContainer = document.querySelector("#tasksContainer");
 const taskCount = document.querySelector("#taskCount");
 
+const menuButton = document.querySelector("#menuButton");
+const mobileMenu = document.querySelector("#mobileMenu");
 
+menuButton.addEventListener("click", function () {
+
+    mobileMenu.classList.toggle("hidden");
+
+});
 // =====================================
 // LOCAL STORAGE SE TASKS LOAD
 // =====================================

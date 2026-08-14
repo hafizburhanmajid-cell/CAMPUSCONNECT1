@@ -10,7 +10,14 @@ const lostFoundCard = document.querySelector("#lostFoundCard");
 
 const partnersCard = document.querySelector("#partnersCard");
 
+const menuButton = document.querySelector("#menuButton");
+const mobileMenu = document.querySelector("#mobileMenu");
 
+menuButton.addEventListener("click", function () {
+
+    mobileMenu.classList.toggle("hidden");
+
+});
 // Explore Events
 exploreEvents.addEventListener("click", function () {
 
