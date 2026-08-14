@@ -8,66 +8,41 @@ const tasksContainer = document.querySelector("#tasksContainer");
 const taskCount = document.querySelector("#taskCount");
 
 
-// ======================================
-// EXISTING CHECKBOXES
-// ======================================
+// =====================================
+// LOCAL STORAGE SE TASKS LOAD
+// =====================================
 
-const existingCheckboxes =
-    document.querySelectorAll(".taskCheckbox");
-
-
-existingCheckboxes.forEach(function (checkbox) {
-
-    checkbox.addEventListener("change", function () {
-
-        const taskTitle =
-            checkbox.parentElement.querySelector("h3");
+let tasks = JSON.parse(localStorage.getItem("campusTasks")) || [];
 
 
-        if (checkbox.checked) {
+// =====================================
+// PAGE LOAD PAR TASKS SHOW
+// =====================================
 
-            taskTitle.classList.add(
-                "line-through",
-                "text-slate-400"
-            );
+tasks.forEach(function (task) {
 
-        } else {
-
-            taskTitle.classList.remove(
-                "line-through",
-                "text-slate-400"
-            );
-
-        }
-
-    });
+    addTaskToScreen(task);
 
 });
 
+updateTaskCount();
 
-// ======================================
+
+// =====================================
 // ADD TASK
-// ======================================
+// =====================================
 
 taskForm.addEventListener("submit", function (event) {
 
     event.preventDefault();
 
 
-    const taskName =
-        taskInput.value.trim();
-
-    const subject =
-        subjectInput.value;
-
-    const deadline =
-        deadlineInput.value;
+    const taskName = taskInput.value.trim();
+    const subject = subjectInput.value;
+    const deadline = deadlineInput.value;
 
 
-    // ==================================
-    // VALIDATION
-    // ==================================
-
+    // Validation
     if (taskName === "") {
 
         alert("Please enter task name");
@@ -98,12 +73,63 @@ taskForm.addEventListener("submit", function (event) {
     }
 
 
-    // ==================================
-    // CREATE TASK CARD
-    // ==================================
+    // =================================
+    // NEW TASK
+    // =================================
 
-    const taskCard =
-        document.createElement("div");
+    const newTask = {
+
+        id: Date.now(),
+
+        name: taskName,
+
+        subject: subject,
+
+        deadline: deadline,
+
+        completed: false
+
+    };
+
+
+    // Array mein add
+    tasks.push(newTask);
+
+
+    // =================================
+    // LOCAL STORAGE MEIN SAVE
+    // =================================
+
+    localStorage.setItem(
+        "campusTasks",
+        JSON.stringify(tasks)
+    );
+
+
+    // Screen par show
+    addTaskToScreen(newTask);
+
+
+    // Count update
+    updateTaskCount();
+
+
+    // Form clear
+    taskForm.reset();
+
+
+    alert("Task added successfully!");
+
+});
+
+
+// =====================================
+// ADD TASK TO SCREEN
+// =====================================
+
+function addTaskToScreen(task) {
+
+    const taskCard = document.createElement("div");
 
 
     taskCard.className =
@@ -116,21 +142,21 @@ taskForm.addEventListener("submit", function (event) {
 
             <input
                 type="checkbox"
-                class="taskCheckbox mt-1 w-5 h-5 accent-indigo-600 transition-transform duration-200 hover:scale-110"
+                class="taskCheckbox mt-1 w-5 h-5 accent-indigo-600 cursor-pointer"
             >
 
             <div>
 
                 <h3 class="font-bold">
-                    ${taskName}
+                    ${task.name}
                 </h3>
 
                 <p class="text-sm text-slate-500 mt-1">
-                    ${subject}
+                    ${task.subject}
                 </p>
 
                 <p class="text-sm text-indigo-500 mt-2">
-                    📅 Due: ${deadline}
+                    📅 Due: ${task.deadline}
                 </p>
 
             </div>
@@ -148,49 +174,65 @@ taskForm.addEventListener("submit", function (event) {
     `;
 
 
-    // ==================================
-    // SCREEN PAR ADD
-    // ==================================
-
-    tasksContainer.appendChild(taskCard);
-
-
-    // ==================================
-    // NEW TASK CHECKBOX
-    // ==================================
+    // =================================
+    // CHECKBOX
+    // =================================
 
     const checkbox =
         taskCard.querySelector(".taskCheckbox");
 
 
+    const title =
+        taskCard.querySelector("h3");
+
+
+    // Agar task pehle completed tha
+    if (task.completed === true) {
+
+        checkbox.checked = true;
+
+        title.classList.add(
+            "line-through",
+            "text-slate-400"
+        );
+
+    }
+
+
     checkbox.addEventListener("change", function () {
 
-        const taskTitle =
-            taskCard.querySelector("h3");
+        task.completed = checkbox.checked;
 
 
         if (checkbox.checked) {
 
-            taskTitle.classList.add(
+            title.classList.add(
                 "line-through",
                 "text-slate-400"
             );
 
         } else {
 
-            taskTitle.classList.remove(
+            title.classList.remove(
                 "line-through",
                 "text-slate-400"
             );
 
         }
 
+
+        // Updated task localStorage mein save
+        localStorage.setItem(
+            "campusTasks",
+            JSON.stringify(tasks)
+        );
+
     });
 
 
-    // ==================================
+    // =================================
     // DELETE BUTTON
-    // ==================================
+    // =================================
 
     const deleteBtn =
         taskCard.querySelector(".deleteBtn");
@@ -198,44 +240,48 @@ taskForm.addEventListener("submit", function (event) {
 
     deleteBtn.addEventListener("click", function () {
 
+        // Screen se remove
         taskCard.remove();
 
+
+        // Array se remove
+        tasks = tasks.filter(function (item) {
+
+            return item.id !== task.id;
+
+        });
+
+
+        // LocalStorage update
+        localStorage.setItem(
+            "campusTasks",
+            JSON.stringify(tasks)
+        );
+
+
+        // Count update
         updateTaskCount();
 
     });
 
 
-    // ==================================
-    // UPDATE COUNT
-    // ==================================
+    // =================================
+    // MY TASKS MEIN ADD
+    // =================================
 
-    updateTaskCount();
+    tasksContainer.appendChild(taskCard);
 
-
-    // ==================================
-    // CLEAR FORM
-    // ==================================
-
-    taskForm.reset();
+}
 
 
-    // ==================================
-    // SUCCESS MESSAGE
-    // ==================================
-
-    alert("Task added successfully!");
-
-});
-
-
-// ======================================
-// UPDATE TASK COUNT
-// ======================================
+// =====================================
+// TASK COUNT
+// =====================================
 
 function updateTaskCount() {
 
     const totalTasks =
-        tasksContainer.querySelectorAll(".task-card").length;
+        tasks.length;
 
 
     taskCount.textContent =
