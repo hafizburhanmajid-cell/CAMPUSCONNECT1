@@ -1,0 +1,53 @@
+const searchInput = document.querySelector("#partnerSearch");
+const levelFilter = document.querySelector("#levelFilter");
+const subjectFilter = document.querySelector("#subjectFilter");
+
+const partnerCards = document.querySelectorAll(".partner-card");
+
+
+function filterPartners() {
+
+    const searchText = searchInput.value
+        .toLowerCase()
+        .trim();
+
+    const selectedLevel = levelFilter.value;
+    const selectedSubject = subjectFilter.value;
+
+
+    partnerCards.forEach(card => {
+
+        const cardText = card.textContent.toLowerCase();
+
+        const levelMatch =
+            selectedLevel === "All Levels" ||
+            cardText.includes(selectedLevel.toLowerCase());
+
+        const subjectMatch =
+            selectedSubject === "All Subjects" ||
+            cardText.includes(selectedSubject.toLowerCase());
+
+        const searchMatch =
+            searchText === "" ||
+            cardText.includes(searchText);
+
+
+        if (levelMatch && subjectMatch && searchMatch) {
+
+            card.style.display = "";
+
+        } else {
+
+            card.style.display = "none";
+
+        }
+
+    });
+}
+
+
+searchInput.addEventListener("input", filterPartners);
+
+levelFilter.addEventListener("change", filterPartners);
+
+subjectFilter.addEventListener("change", filterPartners);

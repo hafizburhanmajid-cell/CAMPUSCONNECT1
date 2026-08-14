@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Study Planner | CampusConnect</title>
+
+    <link rel="stylesheet" href="./src/output.css">
+</head>
+
+<body class="bg-slate-50 text-slate-900">
+
+    <!-- Navbar -->
+    <nav class="bg-white border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+
+            <a href="index.html"
+               class="text-2xl font-bold text-indigo-600 transition-transform duration-300 hover:scale-105">
+                CampusConnect
+            </a>
+
+            <div class="hidden md:flex items-center gap-6">
+
+                <a href="index.html"
+                   class="relative text-slate-600 hover:text-indigo-600 pb-1 transition-colors duration-300 after:content-[''] after:absolute after:left-0 after:-bottom-0.5 after:h-0.5 after:w-0 after:bg-indigo-600 after:rounded-full after:transition-all after:duration-300 hover:after:w-full">
+                    Home
+                </a>
+
+                <a href="events.html"
+                   class="relative text-slate-600 hover:text-indigo-600 pb-1 transition-colors duration-300 after:content-[''] after:absolute after:left-0 after:-bottom-0.5 after:h-0.5 after:w-0 after:bg-indigo-600 after:rounded-full after:transition-all after:duration-300 hover:after:w-full">
+                    Events
+                </a>
+
+                <a href="planner.html"
+                   class="text-indigo-600 font-semibold">
+                    Study Planner
+                </a>
+
+                <a href="lost-found.html"
+                   class="relative text-slate-600 hover:text-indigo-600 pb-1 transition-colors duration-300 after:content-[''] after:absolute after:left-0 after:-bottom-0.5 after:h-0.5 after:w-0 after:bg-indigo-600 after:rounded-full after:transition-all after:duration-300 hover:after:w-full">
+                    Lost & Found
+                </a>
+
+                <a href="study-partners.html"
+                   class="relative text-slate-600 hover:text-indigo-600 pb-1 transition-colors duration-300 after:content-[''] after:absolute after:left-0 after:-bottom-0.5 after:h-0.5 after:w-0 after:bg-indigo-600 after:rounded-full after:transition-all after:duration-300 hover:after:w-full">
+                    Study Partners
+                </a>
+
+            </div>
+
+        </div>
+    </nav>
+
+
+    <!-- Header -->
+    <section class="bg-indigo-600 text-white">
+
+        <div class="max-w-7xl mx-auto px-6 py-16">
+
+            <p class="text-indigo-200 font-semibold mb-2">
+                STUDY PLANNER
+            </p>
+
+            <h1 class="text-4xl md:text-5xl font-bold mb-4">
+                Plan. Study. Achieve.
+            </h1>
+
+            <p class="text-indigo-100 max-w-2xl">
+                Organize your study tasks, track deadlines and
+                stay on top of your academic goals.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- Main Content -->
+    <main class="max-w-7xl mx-auto px-6 py-12">
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+
+
+            <!-- Add Task -->
+            <div class="bg-white border border-slate-200 rounded-2xl p-6 transition-shadow duration-300 hover:shadow-md">
+
+                <h2 class="text-2xl font-bold mb-6">
+                    Add New Task
+                </h2>
+
+                <form class="space-y-5">
+
+                    <div>
+                        <label class="block text-sm font-medium mb-2">
+                            Task
+                        </label>
+
+                        <input id="taskInput"
+                            type="text"
+                            placeholder="e.g. Complete JavaScript assignment"
+                            class="w-full px-4 py-3 border border-slate-300
+                                   rounded-xl outline-none transition-all duration-300
+                                   focus:ring-2 focus:ring-indigo-500"
+                        >
+                    </div>
+
+
+                    <div>
+                        <label class="block text-sm font-medium mb-2">
+                            Subject
+                        </label>
+
+                        <select id="subjectInput"
+                            class="w-full px-4 py-3 border border-slate-300
+                                   rounded-xl outline-none transition-all duration-300
+                                   focus:ring-2 focus:ring-indigo-500"
+                        >
+                            <option>Select Subject</option>
+                            <option>Web Development</option>
+                            <option>Data Structures</option>
+                            <option>Database</option>
+                            <option>Artificial Intelligence</option>
+                        </select>
+                    </div>
+
+
+                    <div>
+                        <label class="block text-sm font-medium mb-2">
+                            Deadline
+                        </label>
+
+                        <input id="deadlineInput"
+                            type="date"
+                            class="w-full px-4 py-3 border border-slate-300
+                                   rounded-xl outline-none transition-all duration-300
+                                   focus:ring-2 focus:ring-indigo-500"
+                        >
+                    </div>
+
+
+                    <button id="addTaskBtn"
+                        type="button"
+                        class="w-full bg-indigo-600 text-white
+                               py-3 rounded-xl font-semibold
+                               transition-all duration-300 hover:bg-indigo-700 hover:scale-[1.02] hover:shadow-xl"
+                    >
+                        + Add Task
+                    </button>
+
+                </form>
+
+            </div>
+
+
+            <!-- Tasks -->
+            <div class="lg:col-span-2">
+
+                <div class="flex items-center justify-between mb-6">
+
+                    <div>
+                        <h2 class="text-2xl font-bold">
+                            My Tasks
+                        </h2>
+
+                        <p class="text-slate-500">
+                            Keep track of your upcoming work.
+                        </p>
+                    </div>
+
+                    <span id="taskCount" class="bg-indigo-100 text-indigo-700
+                                 px-4 py-2 rounded-full text-sm font-semibold transition-transform duration-300 hover:scale-105">
+                        3 Tasks
+                    </span>
+
+                </div>
+
+
+                <div class="space-y-4">
+
+
+                    <!-- Task 1 -->
+                    <div class="bg-white border border-slate-200
+                                rounded-2xl p-5 flex items-center
+                                justify-between gap-4 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:border-indigo-300">
+
+                        <div class="flex items-start gap-4">
+
+                            <input
+                                type="checkbox"
+                                class="mt-1 w-5 h-5 accent-indigo-600 transition-transform duration-200 hover:scale-110"
+                            >
+
+                            <div>
+                                <h3 class="font-bold">
+                                    Complete JavaScript Assignment
+                                </h3>
+
+                                <p class="text-sm text-slate-500 mt-1">
+                                    Web Development
+                                </p>
+
+                                <p class="text-sm text-red-500 mt-2">
+                                    📅 Due: August 12, 2026
+                                </p>
+                            </div>
+
+                        </div>
+
+                        <span class="text-xs font-semibold
+                                     bg-red-100 text-red-600
+                                     px-3 py-1 rounded-full">
+                            High
+                        </span>
+
+                    </div>
+
+
+                    <!-- Task 2 -->
+                    <div class="bg-white border border-slate-200
+                                rounded-2xl p-5 flex items-center
+                                justify-between gap-4 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:border-indigo-300">
+
+                        <div class="flex items-start gap-4">
+
+                            <input
+                                type="checkbox"
+                                class="mt-1 w-5 h-5 accent-indigo-600 transition-transform duration-200 hover:scale-110"
+                            >
+
+                            <div>
+                                <h3 class="font-bold">
+                                    Revise Data Structures
+                                </h3>
+
+                                <p class="text-sm text-slate-500 mt-1">
+                                    Data Structures
+                                </p>
+
+                                <p class="text-sm text-orange-500 mt-2">
+                                    📅 Due: August 15, 2026
+                                </p>
+                            </div>
+
+                        </div>
+
+                        <span class="text-xs font-semibold
+                                     bg-orange-100 text-orange-600
+                                     px-3 py-1 rounded-full">
+                            Medium
+                        </span>
+
+                    </div>
+
+
+                    <!-- Task 3 -->
+                    <div class="bg-white border border-slate-200
+                                rounded-2xl p-5 flex items-center
+                                justify-between gap-4 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg hover:border-indigo-300">
+
+                        <div class="flex items-start gap-4">
+
+                            <input
+                                type="checkbox"
+                                class="mt-1 w-5 h-5 accent-indigo-600 transition-transform duration-200 hover:scale-110"
+                            >
+
+                            <div>
+                                <h3 class="font-bold">
+                                    Database Quiz Preparation
+                                </h3>
+
+                                <p class="text-sm text-slate-500 mt-1">
+                                    Database
+                                </p>
+
+                                <p class="text-sm text-green-600 mt-2">
+                                    📅 Due: August 20, 2026
+                                </p>
+                            </div>
+
+                        </div>
+
+                        <span class="text-xs font-semibold
+                                     bg-green-100 text-green-600
+                                     px-3 py-1 rounded-full">
+                            Low
+                        </span>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-slate-400">
+
+        <div class="max-w-7xl mx-auto px-6 py-10 text-center">
+
+            <h3 class="text-xl font-bold text-white mb-2 transition-colors duration-300 hover:text-indigo-300">
+                CampusConnect
+            </h3>
+
+            <p>
+                Your Campus. One Platform.
+            </p>
+
+        </div>
+
+    </footer>
+<script src="./js/planner.js"></script>
+</body>
+</html>
