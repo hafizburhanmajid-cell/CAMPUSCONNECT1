@@ -1,29 +1,8 @@
-const form = document.querySelector("#registrationForm");
+const form = document.querySelector("#contactForm");
 
-const studentName = document.querySelector("#studentName");
-const email = document.querySelector("#email");
-const department = document.querySelector("#department");
-const eventName = document.querySelector("#eventName");
-
-
-const params = new URLSearchParams(window.location.search);
-
-const eventId = Number(params.get("id"));
-
-
-const events = [
-    "Web Development Workshop",
-    "Career & Skills Seminar",
-    "Inter-University Football",
-    "AI & Future of Education"
-];
-
-
-if (events[eventId]) {
-
-    eventName.value = events[eventId];
-
-}
+const contactName = document.querySelector("#contactName");
+const contactEmail = document.querySelector("#contactEmail");
+const contactMessage = document.querySelector("#contactMessage");
 
 
 function showError(input, message) {
@@ -31,9 +10,7 @@ function showError(input, message) {
     input.classList.remove("border-slate-300");
     input.classList.add("border-red-500");
 
-    let error =
-        input.parentElement.querySelector(".error-message");
-
+    let error = input.parentElement.querySelector(".error-message");
 
     if (!error) {
 
@@ -47,12 +24,9 @@ function showError(input, message) {
         );
 
         input.parentElement.appendChild(error);
-
     }
 
-
     error.textContent = message;
-
 }
 
 
@@ -64,11 +38,9 @@ function removeError(input) {
     const error =
         input.parentElement.querySelector(".error-message");
 
-
     if (error) {
         error.remove();
     }
-
 }
 
 
@@ -79,80 +51,74 @@ form.addEventListener("submit", function (event) {
     let firstError = null;
 
 
-    // Student Name
-
-    if (studentName.value.trim() === "") {
+    // Name
+    if (contactName.value.trim() === "") {
 
         showError(
-            studentName,
+            contactName,
             "Please enter your name."
         );
 
         if (!firstError) {
-            firstError = studentName;
+            firstError = contactName;
         }
 
     } else {
 
-        removeError(studentName);
+        removeError(contactName);
 
     }
 
 
     // Email
-
-    if (email.value.trim() === "") {
+    if (contactEmail.value.trim() === "") {
 
         showError(
-            email,
+            contactEmail,
             "Please enter your email."
         );
 
         if (!firstError) {
-            firstError = email;
+            firstError = contactEmail;
         }
 
     } else {
 
-        removeError(email);
+        removeError(contactEmail);
 
     }
 
 
-    // Department
-
-    if (department.value.trim() === "") {
+    // Message
+    if (contactMessage.value.trim() === "") {
 
         showError(
-            department,
-            "Please enter your department."
+            contactMessage,
+            "Please enter your message."
         );
 
         if (!firstError) {
-            firstError = department;
+            firstError = contactMessage;
         }
 
     } else {
 
-        removeError(department);
+        removeError(contactMessage);
 
     }
 
 
-    // Error found
-
+    // Agar koi field empty hai
     if (firstError) {
 
         firstError.focus();
 
         return;
-
     }
 
 
-    // Success
-
-    alert("You have successfully registered for the event!");
+    // Sab fields correct hain
+    alert("Your message has been sent successfully!");
 
     form.reset();
 

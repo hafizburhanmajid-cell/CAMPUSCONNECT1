@@ -56,3 +56,10 @@ document.querySelector("#itemLocation").textContent =
 
 document.querySelector("#itemDate").textContent =
     selectedItem.date;
+const contactButton = document.querySelector("#contactButton");
+
+contactButton.addEventListener("click", function () {
+
+    window.location.href = "contact-item.html";
+
+});    

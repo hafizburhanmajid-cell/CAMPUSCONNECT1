@@ -1,8 +1,15 @@
 const searchInput = document.querySelector("#eventsearch");
-const categorySelect = document.querySelector("#categoryFilter");
+const categoryFilter = document.querySelector("#categoryFilter");
+
 const eventCards = document.querySelectorAll(".event-card");
+
 const menuButton = document.querySelector("#menuButton");
 const mobileMenu = document.querySelector("#mobileMenu");
+
+
+// ===============================
+// Mobile Menu
+// ===============================
 
 menuButton.addEventListener("click", function () {
 
@@ -10,32 +17,28 @@ menuButton.addEventListener("click", function () {
 
 });
 
+
+// ===============================
+// Search + Category Filter
+// ===============================
+
 function filterEvents() {
 
-    const searchText = searchInput.value
-        .toLowerCase()
-        .trim();
+    const searchText = searchInput.value.toLowerCase().trim();
+    const selectedCategory = categoryFilter.value;
 
-    const selectedCategory = categorySelect.value.trim();
+    eventCards.forEach(function (card) {
 
-
-    eventCards.forEach(card => {
-
-        const title = card.querySelector("h2")
-            .textContent
-            .toLowerCase();
+        const title = card.querySelector("h2").textContent.toLowerCase();
 
         const description = card.querySelector(".event-description")
             .textContent
             .toLowerCase();
 
-        const category = card.querySelector("#text-span")
-            .textContent
-            .trim();
+        const category = card.querySelector("span").textContent.trim();
 
 
         const searchMatch =
-            searchText === "" ||
             title.includes(searchText) ||
             description.includes(searchText);
 
@@ -59,17 +62,25 @@ function filterEvents() {
 
 }
 
-
 searchInput.addEventListener("input", filterEvents);
 
-categorySelect.addEventListener("change", filterEvents);
-const viewEventButtons = document.querySelectorAll(".viewEventBtn");
+categoryFilter.addEventListener("change", filterEvents);
+
+
+// ===============================
+// View Event Buttons
+// ===============================
+
+const viewEventButtons =
+    document.querySelectorAll(".viewEventBtn");
+
 
 viewEventButtons.forEach(function (button, index) {
 
     button.addEventListener("click", function () {
 
-        window.location.href = `event-details.html?id=${index}`;
+        window.location.href =
+            `event-details.html?id=${index}`;
 
     });
 

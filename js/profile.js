@@ -10,83 +10,207 @@ const about = document.querySelector("#about");
 const menuButton = document.querySelector("#menuButton");
 const mobileMenu = document.querySelector("#mobileMenu");
 
+
+// ===============================
+// Mobile Menu
+// ===============================
+
 menuButton.addEventListener("click", function () {
 
     mobileMenu.classList.toggle("hidden");
 
 });
+
+
+// ===============================
+// Show Error
+// ===============================
+
+function showError(input, message) {
+
+    input.classList.remove("border-slate-300");
+    input.classList.add("border-red-500");
+
+    let error = input.parentElement.querySelector(".error-message");
+
+    if (!error) {
+
+        error = document.createElement("p");
+
+        error.classList.add(
+            "error-message",
+            "text-red-500",
+            "text-sm",
+            "mt-2"
+        );
+
+        input.parentElement.appendChild(error);
+    }
+
+    error.textContent = message;
+}
+
+
+// ===============================
+// Remove Error
+// ===============================
+
+function removeError(input) {
+
+    input.classList.remove("border-red-500");
+    input.classList.add("border-slate-300");
+
+    const error =
+        input.parentElement.querySelector(".error-message");
+
+    if (error) {
+        error.remove();
+    }
+
+}
+
+
+// ===============================
+// Form Submit
+// ===============================
+
 profileForm.addEventListener("submit", function (event) {
 
     event.preventDefault();
 
+    let firstError = null;
 
-    // Name validation
+
+    // Name
     if (studentName.value.trim() === "") {
 
-        alert("Please enter your name");
+        showError(
+            studentName,
+            "Please enter your name."
+        );
 
-        studentName.focus();
+        if (!firstError) {
+            firstError = studentName;
+        }
 
-        return;
+    } else {
+
+        removeError(studentName);
+
     }
 
 
-    // Department validation
+    // Department
     if (department.value.trim() === "") {
 
-        alert("Please enter your department");
+        showError(
+            department,
+            "Please enter your department."
+        );
 
-        department.focus();
+        if (!firstError) {
+            firstError = department;
+        }
 
-        return;
+    } else {
+
+        removeError(department);
+
     }
 
 
-    // Subject validation
+    // Subject
     if (subject.value === "") {
 
-        alert("Please select a subject");
+        showError(
+            subject,
+            "Please select a subject."
+        );
 
-        subject.focus();
+        if (!firstError) {
+            firstError = subject;
+        }
 
-        return;
+    } else {
+
+        removeError(subject);
+
     }
 
 
-    // Level validation
+    // Level
     if (level.value === "") {
 
-        alert("Please select your study level");
+        showError(
+            level,
+            "Please select your study level."
+        );
 
-        level.focus();
+        if (!firstError) {
+            firstError = level;
+        }
 
-        return;
+    } else {
+
+        removeError(level);
+
     }
 
 
-    // Location validation
+    // Preferred Location
     if (preferredLocation.value === "") {
 
-        alert("Please select your preferred study location");
+        showError(
+            preferredLocation,
+            "Please select your preferred study location."
+        );
 
-        preferredLocation.focus();
+        if (!firstError) {
+            firstError = preferredLocation;
+        }
 
-        return;
+    } else {
+
+        removeError(preferredLocation);
+
     }
 
 
-    // About validation
+    // About
     if (about.value.trim() === "") {
 
-        alert("Please tell us something about yourself");
+        showError(
+            about,
+            "Please tell us something about yourself."
+        );
 
-        about.focus();
+        if (!firstError) {
+            firstError = about;
+        }
+
+    } else {
+
+        removeError(about);
+
+    }
+
+
+    // ===============================
+    // Stop if there is an error
+    // ===============================
+
+    if (firstError) {
+
+        firstError.focus();
 
         return;
     }
 
 
-    // Profile object
+    // ===============================
+    // Profile Object
+    // ===============================
+
     const profile = {
 
         name: studentName.value.trim(),
@@ -104,17 +228,21 @@ profileForm.addEventListener("submit", function (event) {
     };
 
 
-    // Save profile in Local Storage
+    // ===============================
+    // Save in Local Storage
+    // ===============================
+
     localStorage.setItem(
         "studyProfile",
         JSON.stringify(profile)
     );
 
 
+    // Success message
     alert("Study profile created successfully!");
 
 
-    // Form clear
+    // Clear form
     profileForm.reset();
 
 });
