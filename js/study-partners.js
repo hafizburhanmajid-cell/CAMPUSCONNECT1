@@ -20,40 +20,39 @@ menuButton.addEventListener("click", function () {
 
 
 // ===============================
-// Search + Filters
+// Filter Partners
 // ===============================
 
 function filterPartners() {
 
-    const searchText = searchInput.value
-        .toLowerCase()
-        .trim();
-
+    const searchValue = searchInput.value.toLowerCase();
     const selectedLevel = levelFilter.value;
     const selectedSubject = subjectFilter.value;
 
 
     partnerCards.forEach(function (card) {
 
-        const cardText = card.textContent.toLowerCase();
+        const cardText = card.innerText.toLowerCase();
+
+        const levelText = card.innerText;
+        const subjectText = card.innerText;
+
+
+        const searchMatch =
+            cardText.includes(searchValue);
 
 
         const levelMatch =
             selectedLevel === "All Levels" ||
-            cardText.includes(selectedLevel.toLowerCase());
+            levelText.includes(selectedLevel);
 
 
         const subjectMatch =
             selectedSubject === "All Subjects" ||
-            cardText.includes(selectedSubject.toLowerCase());
+            subjectText.includes(selectedSubject);
 
 
-        const searchMatch =
-            searchText === "" ||
-            cardText.includes(searchText);
-
-
-        if (levelMatch && subjectMatch && searchMatch) {
+        if (searchMatch && levelMatch && subjectMatch) {
 
             card.style.display = "";
 
@@ -68,15 +67,24 @@ function filterPartners() {
 }
 
 
-// Search
+// ===============================
+// Search Event
+// ===============================
+
 searchInput.addEventListener("input", filterPartners);
 
 
-// Level Filter
+// ===============================
+// Level Filter Event
+// ===============================
+
 levelFilter.addEventListener("change", filterPartners);
 
 
-// Subject Filter
+// ===============================
+// Subject Filter Event
+// ===============================
+
 subjectFilter.addEventListener("change", filterPartners);
 
 
@@ -92,8 +100,7 @@ connectButtons.forEach(function (button, index) {
 
     button.addEventListener("click", function () {
 
-        window.location.href =
-            `connect.html?id=${index}`;
+        window.location.href = `connect.html?id=${index}`;
 
     });
 
