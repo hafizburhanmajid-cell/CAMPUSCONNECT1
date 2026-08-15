@@ -13,18 +13,26 @@
 <body class="bg-slate-50 text-slate-900">
 
 
-    <!-- Navbar -->
-    <nav class="bg-white border-b border-slate-200">
+    <!-- ===============================
+         Navbar
+    =============================== -->
+
+    <nav class="relative bg-white border-b border-slate-200">
 
         <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
 
+            <!-- Logo -->
+
             <a href="index.html"
                 class="text-2xl font-bold text-indigo-600 transition-transform duration-300 hover:scale-105">
+
                 CampusConnect
+
             </a>
 
 
             <!-- Desktop Menu -->
+
             <div class="hidden md:flex items-center gap-6">
 
                 <a href="index.html"
@@ -52,71 +60,80 @@
                     Study Partners
                 </a>
 
-                  <a href="profile.html"
+                <a href="profile.html"
                     class="text-slate-600 hover:text-indigo-600 transition-colors">
                     Profile
                 </a>
 
             </div>
+
+
             <!-- Mobile Menu Button -->
-        <button
-            id="menuButton"
-            type="button"
-            class="md:hidden text-3xl text-slate-700 cursor-pointer"
-            aria-label="Open menu"
-        >
-            ☰
-        </button>
 
-    </div>
+            <button
+                id="menuButton"
+                type="button"
+                class="md:hidden text-3xl text-slate-700 cursor-pointer"
+                aria-label="Open menu">
 
+                ☰
 
-    <!-- Mobile Menu -->
-    <div
-        id="mobileMenu"
-        class="hidden md:hidden border-t border-slate-200 px-6 py-4"
-    >
-
-        <div class="flex flex-col gap-4">
-
-            <a href="index.html"
-                class="text-slate-600 hover:text-indigo-600">
-                Home
-            </a>
-
-            <a href="events.html"
-                class="text-slate-600 hover:text-indigo-600">
-                Events
-            </a>
-
-            <a href="planner.html"
-                class="text-slate-600 hover:text-indigo-600">
-                Study Planner
-            </a>
-
-            <a href="lost-found.html"
-                class="text-slate-600 hover:text-indigo-600">
-                Lost & Found
-            </a>
-
-            <a href="study-partners.html"
-                class="text-indigo-600 font-semibold">
-                Study Partners
-            </a>
-
-               <a href="profile.html"
-                class="text-slate-600 hover:text-indigo-600">
-                Profile
-              </a>
+            </button>
 
         </div>
 
-    </div>
+
+        <!-- ===============================
+             Mobile Menu
+        =============================== -->
+
+        <div
+            id="mobileMenu"
+            class="hidden md:hidden absolute top-full left-0 right-0 bg-white border-t border-slate-200 shadow-lg px-6 py-4 z-50">
+
+            <div class="flex flex-col gap-4">
+
+                <a href="index.html"
+                    class="text-slate-600 hover:text-indigo-600">
+                    Home
+                </a>
+
+                <a href="events.html"
+                    class="text-slate-600 hover:text-indigo-600">
+                    Events
+                </a>
+
+                <a href="planner.html"
+                    class="text-slate-600 hover:text-indigo-600">
+                    Study Planner
+                </a>
+
+                <a href="lost-found.html"
+                    class="text-slate-600 hover:text-indigo-600">
+                    Lost & Found
+                </a>
+
+                <a href="study-partners.html"
+                    class="text-indigo-600 font-semibold">
+                    Study Partners
+                </a>
+
+                <a href="profile.html"
+                    class="text-slate-600 hover:text-indigo-600">
+                    Profile
+                </a>
+
+            </div>
+
+        </div>
 
     </nav>
 
 
-    <!-- Header -->
+    <!-- ===============================
+         Header
+    =============================== -->
+
     <section class="bg-indigo-600 text-white">
 
         <div class="max-w-7xl mx-auto px-6 py-16">
@@ -139,7 +156,10 @@
     </section>
 
 
-    <!-- Search & Filters -->
+    <!-- ===============================
+         Search & Filters
+    =============================== -->
+
     <section class="max-w-7xl mx-auto px-6 py-10">
 
         <div
@@ -148,38 +168,45 @@
             <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
 
                 <!-- Search -->
+
                 <input
                     id="partnerSearch"
                     type="text"
                     placeholder="Search subject..."
-                    class="px-4 py-3 border border-slate-300 rounded-xl outline-none transition-all duration-300 focus:ring-2 focus:ring-indigo-500"
-                >
+                    class="px-4 py-3 border border-slate-300 rounded-xl outline-none transition-all duration-300 focus:ring-2 focus:ring-indigo-500">
 
 
                 <!-- Level Filter -->
+
                 <select
                     id="levelFilter"
-                    class="px-4 py-3 border border-slate-300 rounded-xl outline-none transition-all duration-300 focus:ring-2 focus:ring-indigo-500"
-                >
+                    class="px-4 py-3 border border-slate-300 rounded-xl outline-none transition-all duration-300 focus:ring-2 focus:ring-indigo-500">
 
                     <option>All Levels</option>
+
                     <option>Beginner</option>
+
                     <option>Intermediate</option>
+
                     <option>Advanced</option>
 
                 </select>
 
 
                 <!-- Subject Filter -->
+
                 <select
                     id="subjectFilter"
-                    class="px-4 py-3 border border-slate-300 rounded-xl outline-none transition-all duration-300 focus:ring-2 focus:ring-indigo-500"
-                >
+                    class="px-4 py-3 border border-slate-300 rounded-xl outline-none transition-all duration-300 focus:ring-2 focus:ring-indigo-500">
 
                     <option>All Subjects</option>
+
                     <option>Web Development</option>
+
                     <option>Data Structures</option>
+
                     <option>Database</option>
+
                     <option>Artificial Intelligence</option>
 
                 </select>
@@ -191,13 +218,19 @@
     </section>
 
 
-    <!-- Study Partners -->
+    <!-- ===============================
+         Study Partners
+    =============================== -->
+
     <section class="max-w-7xl mx-auto px-6 pb-20">
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 
 
-            <!-- Partner 1 -->
+            <!-- ===============================
+                 Partner 1 - Ayesha
+            =============================== -->
+
             <div
                 class="partner-card bg-white border border-slate-200 rounded-2xl p-6 transition-all duration-300 hover:-translate-y-2 hover:shadow-lg hover:border-indigo-300">
 
@@ -205,7 +238,9 @@
 
                     <div
                         class="w-14 h-14 rounded-full bg-indigo-100 flex items-center justify-center text-2xl transition-transform duration-300 hover:scale-110 hover:-rotate-6">
+
                         👩🏻‍💻
+
                     </div>
 
                     <div>
@@ -226,27 +261,33 @@
                 <div class="space-y-3 text-sm">
 
                     <p>
+
                         <span class="font-semibold">
                             📚 Subject:
                         </span>
 
                         Web Development
+
                     </p>
 
                     <p>
+
                         <span class="font-semibold">
                             🎯 Level:
                         </span>
 
                         Intermediate
+
                     </p>
 
                     <p>
+
                         <span class="font-semibold">
                             📍 Preferred:
                         </span>
 
                         Library
+
                     </p>
 
                 </div>
@@ -254,13 +295,18 @@
 
                 <button
                     class="w-full mt-6 bg-indigo-600 text-white py-3 rounded-xl font-semibold transition-all duration-300 hover:bg-indigo-700 hover:scale-105 hover:shadow-xl cursor-pointer">
+
                     Connect
+
                 </button>
 
             </div>
 
 
-            <!-- Partner 2 -->
+            <!-- ===============================
+                 Partner 2 - Hamza
+            =============================== -->
+
             <div
                 class="partner-card bg-white border border-slate-200 rounded-2xl p-6 transition-all duration-300 hover:-translate-y-2 hover:shadow-lg hover:border-indigo-300">
 
@@ -268,7 +314,9 @@
 
                     <div
                         class="w-14 h-14 rounded-full bg-purple-100 flex items-center justify-center text-2xl transition-transform duration-300 hover:scale-110 hover:-rotate-6">
+
                         👨🏻‍💻
+
                     </div>
 
                     <div>
@@ -289,27 +337,33 @@
                 <div class="space-y-3 text-sm">
 
                     <p>
+
                         <span class="font-semibold">
                             📚 Subject:
                         </span>
 
                         Data Structures
+
                     </p>
 
                     <p>
+
                         <span class="font-semibold">
                             🎯 Level:
                         </span>
 
                         Advanced
+
                     </p>
 
                     <p>
+
                         <span class="font-semibold">
                             📍 Preferred:
                         </span>
 
                         Study Room
+
                     </p>
 
                 </div>
@@ -317,13 +371,18 @@
 
                 <button
                     class="w-full mt-6 bg-indigo-600 text-white py-3 rounded-xl font-semibold transition-all duration-300 hover:bg-indigo-700 hover:scale-105 hover:shadow-xl cursor-pointer">
+
                     Connect
+
                 </button>
 
             </div>
 
 
-            <!-- Partner 3 -->
+            <!-- ===============================
+                 Partner 3 - Ali
+            =============================== -->
+
             <div
                 class="partner-card bg-white border border-slate-200 rounded-2xl p-6 transition-all duration-300 hover:-translate-y-2 hover:shadow-lg hover:border-indigo-300">
 
@@ -331,7 +390,9 @@
 
                     <div
                         class="w-14 h-14 rounded-full bg-indigo-100 flex items-center justify-center text-2xl transition-transform duration-300 hover:scale-110 hover:-rotate-6">
+
                         👨🏻‍🎓
+
                     </div>
 
                     <div>
@@ -352,27 +413,33 @@
                 <div class="space-y-3 text-sm">
 
                     <p>
+
                         <span class="font-semibold">
                             📚 Subject:
                         </span>
 
                         Artificial Intelligence
+
                     </p>
 
                     <p>
+
                         <span class="font-semibold">
                             🎯 Level:
                         </span>
 
                         Intermediate
+
                     </p>
 
                     <p>
+
                         <span class="font-semibold">
                             📍 Preferred:
                         </span>
 
                         Online
+
                     </p>
 
                 </div>
@@ -380,7 +447,9 @@
 
                 <button
                     class="w-full mt-6 bg-indigo-600 text-white py-3 rounded-xl font-semibold transition-all duration-300 hover:bg-indigo-700 hover:scale-105 hover:shadow-xl cursor-pointer">
+
                     Connect
+
                 </button>
 
             </div>
@@ -391,7 +460,10 @@
     </section>
 
 
-    <!-- CTA -->
+    <!-- ===============================
+         CTA
+    =============================== -->
+
     <section class="max-w-7xl mx-auto px-6 pb-20">
 
         <div
@@ -406,21 +478,32 @@
                 find you.
             </p>
 
-           <a href="profile.html" class="inline-block bg-indigo-600 text-white px-7 py-3 rounded-xl font-semibold transition-all duration-300 hover:bg-indigo-700 hover:scale-105 hover:shadow-xl">Create Study Profile</a>
+            <a
+                href="profile.html"
+                class="inline-block bg-indigo-600 text-white px-7 py-3 rounded-xl font-semibold transition-all duration-300 hover:bg-indigo-700 hover:scale-105 hover:shadow-xl">
+
+                Create Study Profile
+
+            </a>
 
         </div>
 
     </section>
 
 
-    <!-- Footer -->
+    <!-- ===============================
+         Footer
+    =============================== -->
+
     <footer class="bg-slate-900 text-slate-400">
 
         <div class="max-w-7xl mx-auto px-6 py-10 text-center">
 
             <h3
                 class="text-xl font-bold text-white mb-2 transition-colors duration-300 hover:text-indigo-300">
+
                 CampusConnect
+
             </h3>
 
             <p>

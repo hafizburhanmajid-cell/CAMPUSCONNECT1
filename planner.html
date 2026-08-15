@@ -14,8 +14,11 @@
 
     <!-- Navbar -->
     <nav class="bg-white border-b border-slate-200">
+
+        <!-- Navbar Main -->
         <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
 
+            <!-- Logo -->
             <a href="index.html"
                 class="text-2xl font-bold text-indigo-600 transition-transform duration-300 hover:scale-105">
                 CampusConnect
@@ -49,66 +52,66 @@
                     Study Partners
                 </a>
 
-                 <a href="profile.html"
+                <a href="profile.html"
                     class="text-slate-600 hover:text-indigo-600 transition-colors">
                     Profile
                 </a>
 
             </div>
-<!-- Mobile Menu Button -->
-        <button
-            id="menuButton"
-            type="button"
-            class="md:hidden text-3xl text-slate-700 cursor-pointer"
-            aria-label="Open menu"
-        >
-            ☰
-        </button>
 
-    </div>
-
-
-    <!-- Mobile Menu -->
-    <div
-        id="mobileMenu"
-        class="hidden md:hidden border-t border-slate-200 px-6 py-4"
-    >
-
-        <div class="flex flex-col gap-4">
-
-            <a href="index.html"
-                class="text-slate-600 hover:text-indigo-600">
-                Home
-            </a>
-
-            <a href="events.html"
-                class="text-slate-600 hover:text-indigo-600">
-                Events
-            </a>
-
-            <a href="planner.html"
-                class="text-indigo-600 font-semibold">
-                Study Planner
-            </a>
-
-            <a href="lost-found.html"
-                class="text-slate-600 hover:text-indigo-600">
-                Lost & Found
-            </a>
-
-            <a href="study-partners.html"
-                class="text-slate-600 hover:text-indigo-600">
-                Study Partners
-            </a>
-
-              <a href="profile.html"
-                class="text-slate-600 hover:text-indigo-600">
-                Profile
-            </a>
+            <!-- Mobile Menu Button -->
+            <button
+                id="menuButton"
+                type="button"
+                class="md:hidden text-3xl text-slate-700 cursor-pointer"
+                aria-label="Open menu">
+                ☰
+            </button>
 
         </div>
 
-    </div>
+
+        <!-- Mobile Menu -->
+        <div
+            id="mobileMenu"
+            class="hidden md:hidden border-t border-slate-200">
+
+            <div class="max-w-7xl mx-auto px-6 py-4 flex flex-col gap-4">
+
+                <a href="index.html"
+                    class="text-slate-600 hover:text-indigo-600">
+                    Home
+                </a>
+
+                <a href="events.html"
+                    class="text-slate-600 hover:text-indigo-600">
+                    Events
+                </a>
+
+                <a href="planner.html"
+                    class="text-indigo-600 font-semibold">
+                    Study Planner
+                </a>
+
+                <a href="lost-found.html"
+                    class="text-slate-600 hover:text-indigo-600">
+                    Lost & Found
+                </a>
+
+                <a href="study-partners.html"
+                    class="text-slate-600 hover:text-indigo-600">
+                    Study Partners
+                </a>
+
+                <a href="profile.html"
+                    class="text-slate-600 hover:text-indigo-600">
+                    Profile
+                </a>
+
+            </div>
+
+        </div>
+
     </nav>
 
 
@@ -154,7 +157,9 @@
                     <!-- Task -->
                     <div>
 
-                        <label class="block text-sm font-medium mb-2">
+                        <label
+                            for="taskInput"
+                            class="block text-sm font-medium mb-2">
                             Task
                         </label>
 
@@ -162,8 +167,7 @@
                             id="taskInput"
                             type="text"
                             placeholder="e.g. Complete JavaScript assignment"
-                            class="w-full px-4 py-3 border border-slate-300 rounded-xl outline-none focus:ring-2 focus:ring-indigo-500"
-                        >
+                            class="w-full px-4 py-3 border border-slate-300 rounded-xl outline-none focus:ring-2 focus:ring-indigo-500">
 
                     </div>
 
@@ -171,14 +175,15 @@
                     <!-- Subject -->
                     <div>
 
-                        <label class="block text-sm font-medium mb-2">
+                        <label
+                            for="subjectInput"
+                            class="block text-sm font-medium mb-2">
                             Subject
                         </label>
 
                         <select
                             id="subjectInput"
-                            class="w-full px-4 py-3 border border-slate-300 rounded-xl outline-none focus:ring-2 focus:ring-indigo-500"
-                        >
+                            class="w-full px-4 py-3 border border-slate-300 rounded-xl outline-none focus:ring-2 focus:ring-indigo-500">
 
                             <option value="">
                                 Select Subject
@@ -208,24 +213,25 @@
                     <!-- Deadline -->
                     <div>
 
-                        <label class="block text-sm font-medium mb-2">
+                        <label
+                            for="deadlineInput"
+                            class="block text-sm font-medium mb-2">
                             Deadline
                         </label>
 
                         <input
                             id="deadlineInput"
                             type="date"
-                            class="w-full px-4 py-3 border border-slate-300 rounded-xl outline-none focus:ring-2 focus:ring-indigo-500"
-                        >
+                            class="w-full px-4 py-3 border border-slate-300 rounded-xl outline-none focus:ring-2 focus:ring-indigo-500">
 
                     </div>
 
 
+                    <!-- Add Button -->
                     <button
                         id="addTaskBtn"
                         type="submit"
-                        class="w-full bg-indigo-600 text-white cursor-pointer py-3 rounded-xl font-semibold transition-all duration-300 hover:bg-indigo-700 hover:scale-[1.02] hover:shadow-xl"
-                    >
+                        class="w-full bg-indigo-600 text-white cursor-pointer py-3 rounded-xl font-semibold transition-all duration-300 hover:bg-indigo-700 hover:scale-[1.02] hover:shadow-xl">
                         + Add Task
                     </button>
 
@@ -253,19 +259,17 @@
 
                     <span
                         id="taskCount"
-                        class="bg-indigo-100 text-indigo-700 px-4 py-2 rounded-full text-sm font-semibold"
-                    >
+                        class="bg-indigo-100 text-indigo-700 px-4 py-2 rounded-full text-sm font-semibold">
                         0 Tasks
                     </span>
 
                 </div>
 
 
-                <!-- JavaScript yahan tasks add karegi -->
+                <!-- Tasks Container -->
                 <div
                     id="tasksContainer"
-                    class="space-y-4"
-                >
+                    class="space-y-4">
 
                 </div>
 
