@@ -1,58 +1,103 @@
+// ===============================
+// Study Partners Data
+// ===============================
+
+const students = [
+
+    {
+        name: "Ayesha",
+        department: "Computer Science",
+        subject: "Web Development",
+        level: "Intermediate",
+        preferred: "Library",
+        avatar: "👩🏻‍💻",
+        about: "Ayesha is a Computer Science student who enjoys building websites and learning modern web technologies.",
+        goals: "Improve frontend development skills and work on real-world web development projects."
+    },
+
+    {
+        name: "Hamza",
+        department: "Software Engineering",
+        subject: "Data Structures",
+        level: "Advanced",
+        preferred: "Study Room",
+        avatar: "👨🏻‍💻",
+        about: "Hamza is a Software Engineering student who enjoys solving programming problems and learning algorithms.",
+        goals: "Become stronger in data structures and algorithms and prepare for technical interviews."
+    },
+
+    {
+        name: "Ali",
+        department: "Computer Science",
+        subject: "Artificial Intelligence",
+        level: "Intermediate",
+        preferred: "Online",
+        avatar: "👨🏻‍🎓",
+        about: "Ali is a Computer Science student interested in artificial intelligence and machine learning.",
+        goals: "Learn more about AI and build practical machine learning projects."
+    }
+
+];
+
+
+// ===============================
+// Navbar Mobile Menu
+// ===============================
+
+const menuButton = document.querySelector("#menuButton");
+const mobileMenu = document.querySelector("#mobileMenu");
+
+if (menuButton && mobileMenu) {
+
+    menuButton.addEventListener("click", function () {
+
+        mobileMenu.classList.toggle("hidden");
+
+    });
+
+}
+
+
+// ===============================
+// Search & Filters
+// ===============================
+
 const searchInput = document.querySelector("#partnerSearch");
 const levelFilter = document.querySelector("#levelFilter");
 const subjectFilter = document.querySelector("#subjectFilter");
 
 const partnerCards = document.querySelectorAll(".partner-card");
 
-const menuButton = document.querySelector("#menuButton");
-const mobileMenu = document.querySelector("#mobileMenu");
-
-
-// ===============================
-// Mobile Menu
-// ===============================
-
-menuButton.addEventListener("click", function () {
-
-    mobileMenu.classList.toggle("hidden");
-
-});
-
-
-// ===============================
-// Filter Partners
-// ===============================
 
 function filterPartners() {
 
-    const searchValue = searchInput.value.toLowerCase();
-    const selectedLevel = levelFilter.value;
-    const selectedSubject = subjectFilter.value;
+    const searchValue = searchInput.value.toLowerCase().trim();
+
+    const levelValue = levelFilter.value;
+    const subjectValue = subjectFilter.value;
 
 
     partnerCards.forEach(function (card) {
 
-        const cardText = card.innerText.toLowerCase();
-
-        const levelText = card.innerText;
-        const subjectText = card.innerText;
-
+        const cardText = card.textContent.toLowerCase();
 
         const searchMatch =
             cardText.includes(searchValue);
 
-
         const levelMatch =
-            selectedLevel === "All Levels" ||
-            levelText.includes(selectedLevel);
-
+            levelValue === "All Levels" ||
+            cardText.includes(levelValue.toLowerCase());
 
         const subjectMatch =
-            selectedSubject === "All Subjects" ||
-            subjectText.includes(selectedSubject);
+            subjectValue === "All Subjects" ||
+            cardText.includes(subjectValue.toLowerCase());
 
 
-        if (searchMatch && levelMatch && subjectMatch) {
+        if (
+            searchMatch &&
+            levelMatch &&
+            subjectMatch
+        ) {
 
             card.style.display = "";
 
@@ -71,21 +116,42 @@ function filterPartners() {
 // Search Event
 // ===============================
 
-searchInput.addEventListener("input", filterPartners);
+if (searchInput) {
+
+    searchInput.addEventListener(
+        "input",
+        filterPartners
+    );
+
+}
 
 
 // ===============================
 // Level Filter Event
 // ===============================
 
-levelFilter.addEventListener("change", filterPartners);
+if (levelFilter) {
+
+    levelFilter.addEventListener(
+        "change",
+        filterPartners
+    );
+
+}
 
 
 // ===============================
 // Subject Filter Event
 // ===============================
 
-subjectFilter.addEventListener("change", filterPartners);
+if (subjectFilter) {
+
+    subjectFilter.addEventListener(
+        "change",
+        filterPartners
+    );
+
+}
 
 
 // ===============================
@@ -93,14 +159,29 @@ subjectFilter.addEventListener("change", filterPartners);
 // ===============================
 
 const connectButtons =
-    document.querySelectorAll(".partner-card button");
+    document.querySelectorAll(".connect-btn");
 
 
-connectButtons.forEach(function (button, index) {
+connectButtons.forEach(function (button) {
 
     button.addEventListener("click", function () {
 
-        window.location.href = `connect.html?id=${index}`;
+        // Button se student ka index lena
+        const studentIndex =
+            Number(button.dataset.index);
+
+
+        // Check karna ke student exist karta hai
+        if (
+            studentIndex >= 0 &&
+            studentIndex < students.length
+        ) {
+
+            // Connect page par correct student bhejna
+            window.location.href =
+                `connect.html?student=${studentIndex}`;
+
+        }
 
     });
 
