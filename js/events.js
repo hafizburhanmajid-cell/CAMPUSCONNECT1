@@ -63,3 +63,14 @@ function filterEvents() {
 searchInput.addEventListener("input", filterEvents);
 
 categorySelect.addEventListener("change", filterEvents);
+const viewEventButtons = document.querySelectorAll(".viewEventBtn");
+
+viewEventButtons.forEach(function (button, index) {
+
+    button.addEventListener("click", function () {
+
+        window.location.href = `event-details.html?id=${index}`;
+
+    });
+
+});

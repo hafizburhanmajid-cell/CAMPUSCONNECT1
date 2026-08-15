@@ -26,3 +26,16 @@ searchInput.addEventListener("input", searchItems);
 reportButton.addEventListener("click", function () {
     alert("Report Item feature coming soon!");
 });
+const viewDetailsButtons =
+    document.querySelectorAll(".viewDetailsBtn");
+
+viewDetailsButtons.forEach(function (button, index) {
+
+    button.addEventListener("click", function () {
+
+        window.location.href =
+            `item-details.html?id=${index}`;
+
+    });
+
+});
